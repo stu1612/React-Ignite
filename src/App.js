@@ -1,7 +1,9 @@
+import { Games } from "./components/Games";
+
 export const App = () => {
   return (
     <div className="App">
-      <h1>Hello world</h1>
+      <Games />
     </div>
   );
 };
