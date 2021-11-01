@@ -14,6 +14,7 @@ export const Games = () => {
   return (
     <div>
       <h1>Hello Stu</h1>
+      <h2>Games</h2>
     </div>
   );
 };
