@@ -11,10 +11,10 @@ export const Games = () => {
     const data = await response.json();
     console.log(data);
   };
+
   return (
     <div>
-      <h1>Hello Stu</h1>
-      <h2>Games New</h2>
+      <h1>Hello </h1>
     </div>
   );
 };
