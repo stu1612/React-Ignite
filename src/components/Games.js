@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { popularGamesUrl } from "../api";
+import { CounterContext } from "../contexts/counterContext";
 
 export const Games = () => {
+  const { counter, incrementCounter, decrementCounter } =
+    useContext(CounterContext);
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -15,6 +19,9 @@ export const Games = () => {
   return (
     <div>
       <h1>Hello </h1>
+      <button onClick={incrementCounter}>+</button>
+      <h2>{counter}</h2>
+      <button onClick={decrementCounter}>-</button>
     </div>
   );
 };

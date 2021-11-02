@@ -14,7 +14,9 @@ export const CounterContextProvider = ({ children }) => {
   };
 
   return (
-    <CounterContext.Provider value={{ incrementCounter, decrementCounter }}>
+    <CounterContext.Provider
+      value={{ counter, incrementCounter, decrementCounter }}
+    >
       {children}
     </CounterContext.Provider>
   );
