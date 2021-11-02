@@ -3,8 +3,7 @@ import { popularGamesUrl } from "../api";
 import { CounterContext } from "../contexts/counterContext";
 
 export const Games = () => {
-  const { counter, incrementCounter, decrementCounter } =
-    useContext(CounterContext);
+  const { dispatch, state } = useContext(CounterContext);
 
   useEffect(() => {
     fetchData();
@@ -19,9 +18,9 @@ export const Games = () => {
   return (
     <div>
       <h1>Hello </h1>
-      <button onClick={incrementCounter}>+</button>
-      <h2>{counter}</h2>
-      <button onClick={decrementCounter}>-</button>
+      <button onClick={() => dispatch({ type: "INCREMENT_1" })}>+</button>
+      <h2>{state.count}</h2>
+      <button onClick={() => dispatch({ type: "DECREMENT_1" })}>-</button>
     </div>
   );
 };

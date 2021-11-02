@@ -1,22 +1,16 @@
-import React, { createContext, useState } from "react";
+/* eslint-disable no-undef */
+import React, { createContext, useReducer } from "react";
+import { counterReducer } from "../reducers/counterReducer";
 
 export const CounterContext = createContext();
 
+const initialState = { count: 0 };
+
 export const CounterContextProvider = ({ children }) => {
-  const [counter, setCounter] = useState(0);
-
-  const incrementCounter = () => {
-    setCounter(counter + 1);
-  };
-
-  const decrementCounter = () => {
-    setCounter(counter - 1);
-  };
+  const [state, dispatch] = useReducer(counterReducer, initialState);
 
   return (
-    <CounterContext.Provider
-      value={{ counter, incrementCounter, decrementCounter }}
-    >
+    <CounterContext.Provider value={{ dispatch, state }}>
       {children}
     </CounterContext.Provider>
   );
