@@ -1,14 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
-import { CounterContextProvider } from "./contexts/counterContext";
 import reportWebVitals from "./reportWebVitals";
+// REDUX setup
+import { createStore } from "redux";
+import { rootReducer } from "./reducers";
+import { Provider } from "react-redux";
+
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <React.StrictMode>
-    <CounterContextProvider>
+    <Provider store={store}>
       <App />
-    </CounterContextProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

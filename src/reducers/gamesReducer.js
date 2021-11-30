@@ -1,14 +1,15 @@
 const initState = {
-  popularGame: [],
+  popular: [],
   newGames: [],
-  upcomingGames: [],
+  upcoming: [],
+  searched: [],
 };
 
-export const gamesReducer = (state = { initState }, action) => {
+export const gamesReducer = (state = initState, action) => {
   switch (action.type) {
     case "FETCH_GAMES":
-      return [...state];
+      return { ...state };
     default:
-      return state;
+      return { ...state };
   }
 };
