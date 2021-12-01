@@ -9,9 +9,12 @@ export const GlobalStyles = createGlobalStyle`
 html {
     &::-webkit-scrollbar {
         width: 0.5rem;
-    }
+    };
     &::-webkit-scrollbar-thumb {
-        background-color: darkgrey;
+        background-color: #00fff5;
+    };
+    &::-webkit-scrollbar-track {
+        background: #fafafa;
     }
 }
 body {
