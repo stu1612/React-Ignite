@@ -31,7 +31,8 @@ h2 {
 h3 {
     font-size: 1.3rem;
     color: #222831;
-    padding:1.5rem 0;
+    padding:1rem 0.5rem;
+    display:inline
 }
 p {
     font-size: 0.8rem;
@@ -42,5 +43,8 @@ p {
 a {
     text-decoration:none;
     color: #222831
+}
+img {
+    display:block
 }
 `;

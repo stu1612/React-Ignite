@@ -15,8 +15,10 @@ export const Game = ({ id, name, released, image, slug }) => {
   return (
     <StyledGame key={id} onClick={loadDetailHandler}>
       <Link to={`/game/${id}`}>
-        <h3>{name}</h3>
-        <p>{released}</p>
+        <Wrapper>
+          <h3>{name}</h3>
+          <p>{released}</p>
+        </Wrapper>
         <img src={image} alt={slug} />
       </Link>
     </StyledGame>
@@ -29,15 +31,15 @@ const StyledGame = styled(motion.div)`
   text-align: center;
   border-radius: 6px;
   background-color: #fafafa;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   cursor: pointer;
+  overflow: hidden;
   img {
     width: 100%;
-    height: 40vh;
+    height: 45vh;
     object-fit: cover;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
   }
+`;
+
+const Wrapper = styled(motion.div)`
+  height: 15vh;
 `;
