@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loadDetails } from "../actions/detailsAction";
 import { useHistory } from "react-router";
+import { resizeImage } from "../utils/utils";
 
 export const Game = ({ id, name, released, image, slug }) => {
+  const stringPathId = id.toString();
   // Scrolling check
   const history = useHistory();
   if (history.location.pathname === "/") {
@@ -23,13 +25,17 @@ export const Game = ({ id, name, released, image, slug }) => {
     dispatch(loadDetails(id));
   };
   return (
-    <StyledGame key={id} onClick={loadDetailHandler}>
+    <StyledGame layoutId={stringPathId} key={id} onClick={loadDetailHandler}>
       <Link to={`/game/${id}`}>
         <Wrapper>
-          <h3>{name}</h3>
+          <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
           <p>{released}</p>
         </Wrapper>
-        <img src={image} alt={slug} />
+        <motion.img
+          layoutId={`image ${stringPathId}`}
+          src={resizeImage(image, 640)}
+          alt={slug}
+        />
       </Link>
     </StyledGame>
   );
