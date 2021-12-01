@@ -5,10 +5,20 @@ import { Link } from "react-router-dom";
 //REDUX
 import { useDispatch } from "react-redux";
 import { loadDetails } from "../actions/detailsAction";
+import { useHistory } from "react-router";
 
 export const Game = ({ id, name, released, image, slug }) => {
+  // Scrolling check
+  const history = useHistory();
+  if (history.location.pathname === "/") {
+    document.body.style.overflow = "auto";
+  } else {
+    document.body.style.overflow = "hidden";
+  }
+
   // Load details
   const dispatch = useDispatch();
+
   const loadDetailHandler = () => {
     dispatch(loadDetails(id));
   };
